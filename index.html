@@ -21,8 +21,9 @@
     <!-- script for bar chart-->
     <script>
       const ctx = document.getElementById("myChart");
-      //var data = JSON.parse(document.getElementById('enegy').textContent);
-      //console.log(data);
+      fetch("daanbuis.github.io/files/energyRenewableData1.json")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
       new Chart(ctx, {
         type: "bar",
         data: {
