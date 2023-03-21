@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Chart js dependencies-->
+    <!--<script type="text/javascript" src="node_modules/chart.js/dist/Chart.js"></script> -->
+
+    <title>Displaying Charts</title>
+  </head>
+  <header>
+    <!-- navbar goes here-->
+  </header>
+  <body>
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      type="application/json"
+      src="../jsonexample/energyRenewableData1.json"
+      id="enegy"
+    ></script>
+    <!-- script for bar chart-->
+    <script>
+      const ctx = document.getElementById("myChart");
+      var data = JSON.parse(document.getElementById('enegy').textContent);
+      console.log(data);
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
